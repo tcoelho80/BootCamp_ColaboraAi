@@ -1,0 +1,44 @@
+server:
+  port: 8765
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: api-gateway
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411/
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: cadastro-login
+        uri: lb://cadastro-login
+        predicates:
+        - Path=/cadastro-login/**
+#      - id: investimento
+#        uri: lb://investimento
+#        predicates:
+#        - Path=/investimento/**
+#      - id: pag-fatura
+#        uri: lb://pag-fatura
+#        predicates:
+#        - Path=/pag-fatura/**
+#      - id: mov-conta
+#        uri: lb://mov-conta
+#        predicates:
+#        - Path=/mov-conta/**
+      - id: openapi
+        uri: lb://api-gateway
+        predicates:
+        - Path=/v3/api-docs/**
+        filters:
+        - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+
+        
