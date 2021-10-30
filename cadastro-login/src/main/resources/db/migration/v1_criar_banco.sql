@@ -1,0 +1,1 @@
+CREATE SCHEMA `projeto` DEFAULT CHARACTER SET latin1 ;

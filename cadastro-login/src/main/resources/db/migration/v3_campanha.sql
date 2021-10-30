@@ -1,0 +1,15 @@
+CREATE TABLE `projeto`.`campanha` (
+  `idcamp` INT NOT NULL AUTO_INCREMENT,
+  `nomeCamp` VARCHAR(200) NULL,
+  `descricao` VARCHAR(200) NULL,
+  `nomeResponsavel` VARCHAR(45) NULL,
+  `idCategoria` INT NULL,
+  `email` VARCHAR(200) NULL,
+  `telefone` VARCHAR(45) NULL,
+  `site` VARCHAR(200) NULL,
+  `local` VARCHAR(200) NULL,
+  `dtEvento` DATETIME NULL,
+  `dtcad` DATETIME NULL,
+  `idusu` INT NULL,
+  `delet` VARCHAR(45) NULL DEFAULT ' ',
+  PRIMARY KEY (`idcamp`));
