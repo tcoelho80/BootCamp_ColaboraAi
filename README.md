@@ -1,6 +1,14 @@
 # BootCamp_ColaboraAi
 Trabalho BootCamp da Faculdade Impacta para conclusão do curso de MBA Full Stack Development
 
+#Banco de dados MySql
+Para funcionar deve der uma base criada em branco com o nome ( projeto ), com o usuario root e senha admin123.
+caso queira mudar ir nos arquivos de configuração do projeto e mude. (recomendo que não mude)
+
+script para criar o bonco pelo Mysql Workbench ou qualquer outra IDE
+
+CREATE SCHEMA `projeto` DEFAULT CHARACTER SET latin1 ;
+
 # Portas Dos MicroServices
 
 Naming-server : 8761 
