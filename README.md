@@ -4,10 +4,15 @@ Trabalho BootCamp da Faculdade Impacta para conclusão do curso de MBA Full Stac
 # Portas Dos MicroServices
 
 Naming-server : 8761 
+
 Api-gateway: 8765
+
 Cadastro-login: 8100 neste microserviço esta subindo os scripsts do banco ele deve ser rodado primeiro que os demais  
+
 Campanha: 8200
+
 Beneficiario: 8300
+
 Colaborador: 8400
 
 # Documentação
