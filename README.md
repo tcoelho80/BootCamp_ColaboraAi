@@ -11,9 +11,12 @@ Beneficiario: 8300
 Colaborador: 8400
 
 # Documentação
-http://localhost:8100/swagger-ui.html
-http://localhost:8200/swagger-ui.html
-http://localhost:8300/swagger-ui.html
+http://localhost:8100/swagger-ui.html   
+
+http://localhost:8200/swagger-ui.html   
+
+http://localhost:8300/swagger-ui.html   
+
 http://localhost:8400/swagger-ui.html
 
 # Monitoramento com Zipkin
