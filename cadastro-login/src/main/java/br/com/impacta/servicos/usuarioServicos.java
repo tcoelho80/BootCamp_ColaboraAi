@@ -11,8 +11,11 @@ import br.com.impacta.repository.UsuarioRepository;
 
 public class usuarioServicos {
 	
-	@Autowired
-	private UsuarioRepository repository;
+	 private UsuarioRepository repository;
+	 
+	 public usuarioServicos(UsuarioRepository repository) {
+	        this.repository = repository;
+	    }
 	
 public Usuario CriaUsuario(String nome,
 		String endereco,
@@ -24,7 +27,7 @@ public Usuario CriaUsuario(String nome,
 		String email,
 		String senha,
 		String tipo) {
-	//java.sql.Date dt = (java.sql.Date) new Date();
+	var dt =  new Date();
 	Usuario usu = new Usuario();
 	usu.setNome(nome);
 	usu.setEndereco(endereco);
@@ -36,8 +39,8 @@ public Usuario CriaUsuario(String nome,
 	usu.setEmail(email);
 	usu.setSenha(senha);
 	usu.setTipo(tipo);
-//	usu.setDtcad(null);
-//	usu.setDelet(" ");
+	usu.setDtcad(dt);
+	usu.setDelet(" ");
 //	usu.setIdusuario(1l);
 	
 	try {
@@ -48,6 +51,7 @@ public Usuario CriaUsuario(String nome,
 		var a =e.getMessage();
 		var r=a;
 
+		usu.setDocumento(a);
 		return usu;
 	}
 }
