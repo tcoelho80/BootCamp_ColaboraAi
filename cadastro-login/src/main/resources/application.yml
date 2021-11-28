@@ -33,7 +33,7 @@ spring:
     url: jdbc:mysql://localhost:3306/projeto?useTimezone=true&serverTimezone=UTC
     user: root
     password: admin123
-    enabled: false
+    enabled: true
   sleuth:
     sampler:
       probability: 1.0

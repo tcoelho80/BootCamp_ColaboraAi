@@ -1,5 +1,5 @@
 CREATE TABLE `projeto`.`usuario` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `idusuario` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NULL,
   `endereco` VARCHAR(200) NULL,
   `bairro` VARCHAR(200) NULL,
@@ -12,4 +12,4 @@ CREATE TABLE `projeto`.`usuario` (
   `tipo` VARCHAR(45) NULL,
   `dtcad` DATETIME NULL,
   `delet` VARCHAR(1) NULL DEFAULT ' ',
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`idusuario`));

@@ -1,5 +1,5 @@
 CREATE TABLE `projeto`.`campanha` (
-  `idcamp` INT NOT NULL AUTO_INCREMENT,
+  `idcampanha` INT NOT NULL AUTO_INCREMENT,
   `nomeCamp` VARCHAR(200) NULL,
   `descricao` VARCHAR(200) NULL,
   `nomeResponsavel` VARCHAR(45) NULL,
@@ -12,4 +12,4 @@ CREATE TABLE `projeto`.`campanha` (
   `dtcad` DATETIME NULL,
   `idusu` INT NULL,
   `delet` VARCHAR(45) NULL DEFAULT ' ',
-  PRIMARY KEY (`idcamp`));
+  PRIMARY KEY (`idcampanha`));
