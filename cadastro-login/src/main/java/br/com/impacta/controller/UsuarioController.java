@@ -5,7 +5,10 @@ import br.com.impacta.servicos.usuarioServicos;
 
 import java.util.Date;
 
+import javax.ws.rs.GET;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -76,7 +79,7 @@ public Usuario criaUsuario(@PathVariable("nome") String nome,
 
 
 
-@PostMapping("/cria_usuario")	
+@PostMapping("/cria_usuario1")	
 public Usuario criaUsuario11(@RequestBody Usuario usu) {
 	
 	usuarioServicos usuServ = new usuarioServicos(repository);
@@ -84,9 +87,6 @@ public Usuario criaUsuario11(@RequestBody Usuario usu) {
 	var ret= usuServ.CriaUsuario(usu.getNome(), usu.getEndereco(), usu.getBairro(),
 			usu.getCidade(), usu.getEstado(), usu.getCep(), usu.getDocumento(), usu.getEmail(), usu.getSenha(), usu.getTipo());
 
-	
-		
-		
 		return ret;
 		}catch (Exception e) {
 			var a =e.getMessage();
@@ -96,8 +96,28 @@ public Usuario criaUsuario11(@RequestBody Usuario usu) {
 			return usu;
 		}
 	
+}
+
+
+
+@GetMapping("/login/{email}/{senha}")	
+public Usuario login(@PathVariable("email") String email,@PathVariable("senha") String senha) {
+	
+	usuarioServicos usuServ = new usuarioServicos(repository);
+	try {
+	var ret= usuServ.Login(email, senha);
+
+		return ret;
+		}catch (Exception e) {
+			var a =e.getMessage();
+			var r=a;
+            Usuario usu = new Usuario();
+			usu.setDocumento(a);
+			return usu;
+		}
 	
 }
+
 
 
 
