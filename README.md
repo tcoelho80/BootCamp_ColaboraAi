@@ -11,7 +11,7 @@ CREATE SCHEMA `projeto` DEFAULT CHARACTER SET latin1 ;
 
 # Portas Dos MicroServices
 
-Naming-server : 8761 
+Naming-server : 8761  http://localhost:8761
 
 Api-gateway: 8765
 
