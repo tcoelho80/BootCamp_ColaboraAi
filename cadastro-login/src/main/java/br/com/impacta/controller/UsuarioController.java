@@ -119,6 +119,24 @@ public Usuario login(@PathVariable("email") String email,@PathVariable("senha") 
 }
 
 
+@PostMapping("/signin/{email}/{senha}")	
+public Usuario signIn(@PathVariable("email") String email,@PathVariable("senha") String senha) {
+	
+	usuarioServicos usuServ = new usuarioServicos(repository);
+	try {
+	var ret= usuServ.Login(email, senha);
+
+		return ret;
+		}catch (Exception e) {
+			var a =e.getMessage();
+			var r=a;
+            Usuario usu = new Usuario();
+			usu.setDocumento(a);
+			return usu;
+		}
+	
+}
+
 
 
 
