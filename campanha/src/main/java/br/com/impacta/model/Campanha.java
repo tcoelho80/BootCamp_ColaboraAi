@@ -63,9 +63,19 @@ public class Campanha implements Serializable {
 		super();
 	}
 
-	public Campanha(Long idcampanha, String nomeCamp, String descrao, String nomeResponsavel, Long idCategoria,
-			String email, String telefone, String site, String local, Date dtEvento, Date dtcad, int idusu,
-			String delet) {
+	public Campanha(Long idcampanha, 
+					String nomeCamp, 
+					String descrao, 
+					String nomeResponsavel, 
+					Long idCategoria,
+					String email, 
+					String telefone, 
+					String site, 
+					String local, 
+					Date dtEvento, 
+					Date dtcad, 
+					int idusu,
+					String delet) {
 		super();
 		this.idcampanha = idcampanha;
 		this.nomecamp = nomeCamp;

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import br.com.impacta.model.Beneficiario;
 import br.com.impacta.model.Campanha;
+import br.com.impacta.model.Colabora;
 import br.com.impacta.model.Usuario;
 import br.com.impacta.repository.BeneficiarioRepository;
 
@@ -32,32 +33,28 @@ public class BeneficiarioController {
 	
 	@Operation(summary="Para criar Beneficiario basta informar idcomp,idusu,obs "
 			  )
-	@PostMapping("/criaBeneficiario/{nomeBeneficiario}/{Obs}/{Idcamp}/{Idusu}/{email}/{tipo}")	
-	public Beneficiario criaBeneficiario(@PathVariable("nomeBeneficiario") String nomeBeneficiario,
-			@PathVariable("Obs") String obs,
-			@PathVariable("Idcamp") String idCamp,
-			@PathVariable("Idusu") String idUsu,
-			@PathVariable("tipo") String tipo) {
+	@PostMapping("/criaBeneficiario/{idcamp}/{idusu}/{Idcamp}/{Idusu}")
+	public Beneficiario criaBeneficiario(
+			@PathVariable("idcamp") int idcamp,
+			@PathVariable("idusu") int idusu) {
 		
 	 var dt =  new Date();
-	 Beneficiario col = new Beneficiario();
-		col.setnomeBeneficiario(nomeBeneficiario);
-		col.setObs(obs);
-		col.setIdcamp(idCamp);
-		col.setIdusu(idUsu);
-		col.setDelet(" ");
-		col.setDtcad(dt);
+	 Beneficiario benef = new Beneficiario();
+	 	benef.setIdcamp(idcamp);
+	 	benef.setIdusu(idusu);
+	 	benef.setDelet(" ");
+	 	benef.setObs(" ");
+	 	benef.setDtcad(dt);
 		
 		try {
-		var ret = repository.save(col);
+		var ret = repository.save(benef);
 		
 		return ret;
 		}catch (Exception e) {
 			var a =e.getMessage();
-			var r=a;
-
-			col.setObs(a);
-			return col;
+			
+			benef.setObs(a);
+			return benef;
 		}
 	}
 }
