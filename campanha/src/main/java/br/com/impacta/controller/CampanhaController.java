@@ -24,29 +24,73 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class CampanhaController {
 	@Autowired
 	private CampanhaRepository repository;
-	
-	
 	@Operation(summary="Para criar campanha")
-	@PostMapping("/cria_Campanha")	
-	public Campanha criaCategoriaCampanha(@RequestBody Campanha camp) {
+	@PostMapping("/cria_Campanha/{nomeCampanha}/{descricaoCampanha}/{nomeResponsavel}/{categoria}/{email}/{telefone}/{site}"
+			+ "/{local}/{dtEvento}/{idUsu}")	
+	public Campanha criaCategoriaCampanha(@PathVariable("nomeCampanha") String nomeCampanha,
+			@PathVariable("descricaoCampanha") String descricaoCampanha,
+			@PathVariable("cidade") String nomeResponsavel,
+			@PathVariable("estado") String categoria,
+			@PathVariable("cep") String email,
+			@PathVariable("telefone") String telefone,
+			@PathVariable("site") String site,
+			@PathVariable("local") String local,
+			@PathVariable("dtEvento") String dtEvento,
+			@PathVariable("idUsu") String idUsu){		
 		
-		CampanhaServicos catServ = new CampanhaServicos(repository);
+	 var dt =  new Date();
+	 Campanha catServ = new Campanha();
+	 catServ.setNomeCamp(nomeCampanha);
+	 catServ.setDescricao(descricaoCampanha);
+	 catServ.setNomeResponsavel(nomeResponsavel);
+	 catServ.setIdCategoria(categoria);
+	 catServ.setEmail(email);
+	 catServ.setTelefone(telefone);
+	 catServ.setSite(site);
+	 catServ.setLocal(local);
+	 catServ.setDtEvento(dtEvento);
+	 catServ.setIdusu(idUsu);
+	 catServ.setDelet(" ");
+	 catServ.setDtcad(dt);
+		
 		try {
-		var ret= catServ.criaCampanha(camp.getNomeCamp(),camp.getDescricao(),camp.getNomeResponsavel(),
-				camp.getIdCategoria(),camp.getEmail(),camp.getTelefone(),camp.getSite(),
-				camp.getLocal(),camp.getDtEvento(),camp.getIdusu()) ;
+		var ret = repository.save(catServ);
+		
+		return ret;
+		}catch (Exception e) {
+			var a =e.getMessage();
+			var r=a;
 
-			return camp;
-			}catch (Exception e) {
-				
-				camp.setDescricao(e.getMessage());
-				return camp;
-			}
+			catServ.setDescricao(a);
+			return catServ;
+		}
+		
+		
 		
 	}
+	
+	/*
+	 * @Operation(summary="Para criar campanha")
+	 * 
+	 * @PostMapping("/cria_Campanha") public Campanha
+	 * criaCategoriaCampanha(@RequestBody Campanha camp) {
+	 * 
+	 * CampanhaServicos catServ = new CampanhaServicos(repository); try {
+	 * 
+	 *  
+	 * var ret=
+	 * catServ.criaCampanha(camp.getNomeCamp(),camp.getDescricao(),camp.
+	 * getNomeResponsavel(),
+	 * camp.getIdCategoria(),camp.getEmail(),camp.getTelefone(),camp.getSite(),
+	 * camp.getLocal(),camp.getDtEvento(),camp.getIdusu()) ;
+	 * 
+	 * return camp; }catch (Exception e) {
+	 * 
+	 * camp.setDescricao(e.getMessage()); return camp; }
+	 * 
+	 * }
+	 */
 
-	
-	
-	
+		
 
 }
